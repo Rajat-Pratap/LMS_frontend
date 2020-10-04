@@ -1,0 +1,13 @@
+export const ADD_USER = "ADD_USER";
+export const ADD_USERS = "ADD_USERS";
+export const DELETE_USER = "DELETE_USER";
+export const UPDATE_USER = "UPDATE_USER";
+export const ADD_BOOK = "ADD_BOOK";
+export const ADD_BOOKS = "ADD_BOOKS";
+export const UPDATE_BOOK = "UPDATE_BOOK";
+export const DELETE_BOOK = "DELETE_BOOK";
+export const ISSUE_BOOK = "ISSUE_BOOK";
+export const RETURN_BOOK = "RETURN_BOOK";
+export const ADD_AUTHENTICATED_USER = "ADD_AUTHENTICATED_USER";
+export const DELETE_AUTHENTICATED_USER = "DELETE_AUTHENTICATED_USER";
+export const AUTHENTICATION_FAILED = "AUTHENTICATION_FAILED";
