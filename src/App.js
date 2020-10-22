@@ -12,12 +12,12 @@ function App() {
   return (
     <Provider store={store}>
       <div className="page-container">
-        <div className="content">
-          <Router>
+        <Router>
+          <div className="content">
             <InstructorApp />
-          </Router>
-        </div>
-        <Footer />
+          </div>
+          <Footer />
+        </Router>
       </div>
     </Provider>
   );

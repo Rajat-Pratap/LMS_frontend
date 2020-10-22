@@ -3,6 +3,7 @@ import axios from "axios";
 
 const BOOKS_API_BASE_URL = "http://localhost:8080/books";
 const USER_API_BASE_URL = "http://localhost:8080/users";
+let MyInterceptor;
 
 //addUser
 export const addUser = (user) => ({
@@ -153,7 +154,6 @@ const addAuthenticatedUser = (user) => ({
 });
 
 export const authFailed = () => (dispatch) => {
-  sessionStorage.removeItem("authenticatedUser");
   dispatch({
     type: ActionTypes.AUTHENTICATION_FAILED,
     payload: true,
@@ -165,14 +165,17 @@ const createBasicAuthToken = (username, password) => {
 };
 
 function setupAxiosInterceptors(token) {
-  axios.interceptors.request.use((config) => {
+  MyInterceptor = axios.interceptors.request.use((config) => {
     config.headers.authorization = token;
     return config;
   });
 }
 
-export const deleteAuthenticatedUser = () => (dispatch) =>
+export const deleteAuthenticatedUser = () => (dispatch) => {
+  axios.interceptors.request.eject(MyInterceptor);
+  console.log("auth header deleted");
   dispatch({
     type: ActionTypes.DELETE_AUTHENTICATED_USER,
     payload: null,
   });
+};
